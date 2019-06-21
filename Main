@@ -1,0 +1,33 @@
+import java.text.DecimalFormat;
+import static java.lang.Double.isNaN;
+import static java.lang.Math.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int a,b,c,d;
+        float x1,x2;
+        DecimalFormat df = new DecimalFormat("#.##");
+        a = (int) (random() * 10);
+        b = (int) (random() * 10);
+        c = (int) (random() * 10);
+        d =  (int) pow (b,2) - 4 * a * c;
+        if (d > 0) {
+            x1 = (float) (-b + sqrt(d)) / (2 * a);
+            if (isNaN(x1)){
+                System.out.println("Error: Infinity");
+            }else {
+                System.out.println("x1 = " + df.format(x1));
+                x2 = (float) (-b - sqrt(d)) / (2 * a);
+                System.out.println("x2 = " + df.format(x2));
+            }
+        }else if (d == 0){
+            x1 = (float) (-b + sqrt(d)) / (2 * a);
+            System.out.println("x1 = " + df.format(x1));
+        }else{
+            System.out.println("No solution");
+        }
+    }
+
+}
+
